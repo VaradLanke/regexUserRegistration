@@ -35,3 +35,12 @@ then
 else
   echo "Invalid mobile number";
 fi
+
+read -p "Enter password" password
+passpat1="^([a-zA-Z0-9@#!]){8}$";
+if [[ $password =~ $passpat1   ]]
+then
+        echo "Perfect password"
+else
+  echo "Your password should be of 8 length";
+fi
