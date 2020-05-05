@@ -36,21 +36,27 @@ else
   echo "Invalid mobile number";
 fi
 
-read -p "Enter password" password
-passpat1="^([a-zA-Z0-9@#!]){8}$";
-passpat2="^([a-z0-9@#!]*)[A-Z]+([a-z0-9@#!]*)$";
-passpat3="^[a-zA-Z@#!]*[0-9]+[a-zA-Z@#!]*$";
-passpat4="^([a-zA-Z0-9]*)[^a-zA-Z_0-9\s]([a-zA-Z0-9]*)$";
-if [[ $password =~ $passpat1   ]]
+read -p "Password : " password
+passpattern1="^([a-zA-Z0-9@#!]){8}$";
+passpattern2="^([a-z0-9@#!]*)[A-Z]+([a-z0-9@#!]*)$";
+passpattern3="^[a-zA-Z@#!]*[0-9]+[a-zA-Z@#!]*$";
+passpattern4="^([a-zA-Z0-9]*)[^a-zA-Z_0-9\s]([a-zA-Z0-9]*)$";
+if [[ $password =~ $passpattern1   ]]
 then
-  if [[ $password =~ $passpat2  ]]
+  if [[ $password =~ $passpattern2  ]]
   then
-     if [[ $password =~ $passpat3  ]]
+     if [[ $password =~ $passpattern3  ]]
      then
+       if [[ $password =~ $passpattern4  ]]
+       then
         echo "Perfect password"
+       else
+         echo "Please enter at least one special char";
+        fi
      else
        echo "Please enter at least one digit";
      fi
+
   else
     echo "Please enter at least one caps letter";
   fi
