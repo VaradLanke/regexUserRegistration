@@ -26,3 +26,12 @@ then
 else
   echo "Invalid email address";
 fi
+
+read -p "Mobile : " mobile
+mobpattern="^[0-9]{2}[[:space:]][0-9]{10}$";
+if [[ $mobile =~ $mobpattern   ]]
+then
+  echo "Valid mobile number";
+else
+  echo "Invalid mobile number";
+fi
