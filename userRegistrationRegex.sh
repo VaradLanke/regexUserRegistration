@@ -38,9 +38,15 @@ fi
 
 read -p "Enter password" password
 passpat1="^([a-zA-Z0-9@#!]){8}$";
+passpat2="^([a-z0-9@#!]*)[A-Z]+([a-z0-9@#!]*)$";
 if [[ $password =~ $passpat1   ]]
 then
-        echo "Perfect password"
+  if [[ $password =~ $passpat2  ]]
+  then
+  	echo "Perfect password"
+  else
+    echo "Please enter at least one caps letter";
+  fi
 else
   echo "Your password should be of 8 length";
 fi
